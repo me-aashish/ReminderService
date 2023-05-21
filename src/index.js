@@ -14,12 +14,13 @@ const setUpAndStartServer = () => {
 
     app.listen(PORT, () => {
         console.log(`Server Started on Port : ${PORT}`);
-        sendBasicEmail(
-            'support@admin.com',
-            'jha.aashish11@gmail.com',
-            'This is the subject of testing email',
-            'Hey! How are you ? This is a testing email'
-        )
+        
+        // sendBasicEmail(
+        //     'support@admin.com',
+        //     'jha.aashish11@gmail.com',
+        //     'This is the subject of testing email',
+        //     'Hey! How are you ? This is a testing email'
+        // )
     })
 }
 

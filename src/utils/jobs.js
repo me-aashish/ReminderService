@@ -9,21 +9,23 @@ const setUpJob = () => {
         const response = await serv.fetchPendingEmails();
        
         response.forEach((email)=>{
-            sender.sendMail({
-                from: "reminder@airlone.com",
-                to: email.recepientEmail,
-                subject: email.subject,
-                text: email.content
-            })
-            , 
-            async (err,data)=> {
-                if(err) {
-                    console.log(err);
-                } else {
-                    console.log(data);
-                    await emailService.updateTicket(email.id, {status: "SUCCESS"});
+                sender.sendMail({
+                    from: "reminder@airlone.com",
+                    to: email.recepientEmail,
+                    subject: email.subject,
+                    text: email.content
                 }
-            }
+                , 
+                async (err,data)=> {
+                    if(err) {
+                        console.log(err);
+                    } else {
+                        // console.log(email.id);
+                        // console.log(data);
+                        await serv.UpdateTicket(email.id, {status: "SUCCESS"});
+                    }
+                }
+            )    
         })
         console.log(response);
     })

@@ -13,4 +13,4 @@ const sendBasicEmail = async(mailFrom, mailTo, mailSubject, mailBody) => {
    }
 }
 
-module.exports = {sendBasicEmail};
+module.exports = sendBasicEmail;
